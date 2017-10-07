@@ -8,15 +8,21 @@ const cors = require('cors');
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+// to allow for rendering of static files
+app.use(express.static('public'));
 
 cloudinary.config({
   cloud_name: 'xxxxxxx',
-  api_key: 'xxxxxxxx',
-  api_secret: 'xxxxxxxxx'
+  api_key: 'xxxxxxx',
+  api_secret: 'xxxxxxx'
 });
 
 // Multiparty middleware
 const multipartMiddleware = multipart();
+// to load the index.html for the base route 
+app.get('/', function (req, res) {
+  res.sendFile('index.html');
+})
 
 app.post('/upload', multipartMiddleware, function(req, res) {
 
