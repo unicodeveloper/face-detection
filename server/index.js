@@ -11,8 +11,8 @@ app.use(bodyParser.json());
 
 cloudinary.config({
   cloud_name: 'xxxxxxx',
-  api_key: 'xxxxxxxx',
-  api_secret: 'xxxxxxxxx'
+  api_key: 'xxxxxxx',
+  api_secret: 'xxxxxxx'
 });
 
 // Multiparty middleware
